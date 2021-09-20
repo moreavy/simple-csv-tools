@@ -1,4 +1,6 @@
 # `simple-csv-tools`
+[![Test](https://github.com/moreavy/simple-csv-tools/actions/workflows/main.yml/badge.svg)](https://github.com/moreavy/simple-csv-tools/actions/workflows/main.yml)
+
 `simple-csv-tools` is a simple API to work on CSV spreadsheets.
 ## Usage
 When you import `simple-scv-tools`, you'll be reported with a class. The class provides the API for working on your spreadsheet.
