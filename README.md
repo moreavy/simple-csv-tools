@@ -1,5 +1,5 @@
 # `simple-csv-tools`
-[![Test](https://github.com/moreavy/simple-csv-tools/actions/workflows/main.yml/badge.svg)](https://github.com/moreavy/simple-csv-tools/actions/workflows/main.yml)
+[![Test](https://github.com/moreavy/simple-csv-tools/actions/workflows/test.yml/badge.svg)](https://github.com/moreavy/simple-csv-tools/actions/workflows/test.yml)
 
 `simple-csv-tools` is a simple API to work on CSV spreadsheets.
 ## Usage
