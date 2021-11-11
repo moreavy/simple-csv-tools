@@ -15,5 +15,5 @@ format.
 ## Methods
 1. `toStr()`: Returns the string of the spreadsheet in the CSV format.
 2. `toArr()`: Returns an array containing the same data in the spreadsheet (JSON format)
-3. `writeJSON(...paths: string[])`: Converts CSV to JSON and writes a file to the given path (the parameter).
+3. `writeJSON(...paths: string[])`: Converts CSV to JSON and writes files to the paths given in the parameters.
 4. `parse(arr: array)`: Ovverides the spreadsheets to the given data in JSON form from the `arr` parameter.
