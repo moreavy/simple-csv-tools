@@ -11,5 +11,5 @@ sheet.parse([
 ]);
 console.log(sheet.toStr());
 console.log(sheet.toArr());
-sheet.writeJSON(join(__dirname, "_test.json"));
+sheet.writeJSON(join(__dirname, "_test.json"), join(__dirname, "__test.json"));
 console.log("No error caught in running the code. Warning: This test just catches errors, doesn't check glitches.");

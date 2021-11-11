@@ -39,8 +39,10 @@ class Spreadsheet {
         return to;
     }
 
-    writeJSON(path) {
-        fs.writeFileSync(path, `${JSON.stringify(this.toArr())}${EOL}`, "utf-8");
+    writeJSON() {
+        for (var i = 0; i < arguments.length; i++) {
+            fs.writeFileSync(arguments[i], `${JSON.stringify(this.toArr())}${EOL}`, "utf-8");
+        }
     }
 
     parse(arr) {
