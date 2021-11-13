@@ -4,7 +4,7 @@ const { EOL } = require("os");
 class Spreadsheet {
     debugger;
     constructor(path, stringsOnly = false) {
-        if (typeof(path) !== "string") throw "The spreadsheet's file path should always be a string.";
+        if (typeof (path) !== "string") throw "The spreadsheet's file path should always be a string.";
         this.path = path;
         this.strsonly = stringsOnly;
     }
@@ -51,7 +51,7 @@ class Spreadsheet {
         var itemarrcheck = arr.map((v, i, a) => Array.isArray(v));
         if (itemarrcheck.includes(false)) throw "All items of the array to be parsed into the spreadsheet should always be an array.";
         arr.map((value, index, array) => {
-            const itemstrcheck = value.map((v, i, a) => ((typeof(v) === "string") || (typeof(v) === "number")));
+            const itemstrcheck = value.map((v, i, a) => ((typeof (v) === "string") || (typeof (v) === "number")));
             if (itemstrcheck.includes(false)) throw "All items of the array to be parsed into the spreadsheet should always be a string or a number.";
             var prefix = "\n";
             if (index === 0) {
@@ -68,6 +68,43 @@ class Spreadsheet {
             to = `${to}${prefix}${_to}`;
         });
         fs.writeFileSync(this.path, `${to}${EOL}`, "utf-8");
+    }
+
+    sortColumns(fisrtlineisheaders = true, sortNumericalRows = true, headers) {
+        var heads = new Array();
+        var data = this.toArr();
+
+        if (fisrtlineisheaders) {
+            if (data.length <= 0) return {};
+            heads = data.shift();
+        } else {
+            heads = headers;
+        }
+
+        var to = new Array();
+        heads.map((val, idx, arr) => {
+            var _to = new Array();
+            data.map((v, i, a) => {
+                v.map((value, index, array) => {
+                    if (idx === index) {
+                        _to.push(value);
+                    }
+                });
+            });
+            to.push({
+                header: val,
+                data: _to,
+            });
+        });
+
+        if (sortNumericalRows) {
+            to.map((val, idx, arr) => {
+                var _to = val;
+                _to.serialNumber = idx + 1;
+            });
+        }
+
+        return to;
     }
 }
 
