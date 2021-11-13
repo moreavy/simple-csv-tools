@@ -17,3 +17,6 @@ format.
 2. `toArr()`: Returns an array containing the same data in the spreadsheet (JSON format)
 3. `writeJSON(...paths: string[])`: Converts CSV to JSON and writes files to the paths given in the parameters.
 4. `parse(arr: array)`: Ovverides the spreadsheets to the given data in JSON form from the `arr` parameter.
+5. `sortColumns(fisrtlineisheaders: boolean, sortNumericalRows: boolean, headers: array)`: Sorts data in the spreadhseet
+by it's columns and returns the sorted data. The `fisrtlineisheaders` and `sortNumericalRows` is set to `true` by default.
+You need to give the `headers` parameter only if `fisrtlineisheaders` is set to `false`.
