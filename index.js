@@ -101,6 +101,7 @@ class Spreadsheet {
             to.map((val, idx, arr) => {
                 var _to = val;
                 _to.serialNumber = idx + 1;
+                to[idx] = _to;
             });
         }
 
