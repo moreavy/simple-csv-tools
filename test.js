@@ -3,7 +3,9 @@ const { join } = require("path");
 var sheet = new Spreadsheet(join(__dirname, "test.csv"), true);
 console.log(sheet.toStr());
 console.log(sheet.toArr());
-console.log(sheet.sortColumns());
+sheet.sortColumns().map((v, i, a) => {
+    console.log(v.sortedData());
+});
 sheet.writeJSON(join(__dirname, "test.json"));
 sheet.parse([
     ["Username", "Password"],

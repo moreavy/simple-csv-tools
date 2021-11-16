@@ -1,8 +1,9 @@
 const fs = require("fs");
 const { EOL } = require("os");
+const { join } = require("path");
+const Column = require(join(__dirname, "column.js"));
 
 class Spreadsheet {
-    debugger;
     constructor(path, stringsOnly = false) {
         if (typeof (path) !== "string") throw "The spreadsheet's file path should always be a string.";
         this.path = path;
@@ -70,7 +71,7 @@ class Spreadsheet {
         fs.writeFileSync(this.path, `${to}${EOL}`, "utf-8");
     }
 
-    sortColumns(fisrtlineisheaders = true, sortNumericalRows = true, headers) {
+    sortColumns(fisrtlineisheaders = true, headers) {
         var heads = new Array();
         var data = this.toArr();
 
@@ -91,19 +92,11 @@ class Spreadsheet {
                     }
                 });
             });
-            to.push({
+            to.push(new Column({
                 header: val,
                 data: _to,
-            });
+            }));
         });
-
-        if (sortNumericalRows) {
-            to.map((val, idx, arr) => {
-                var _to = val;
-                _to.serialNumber = idx + 1;
-                to[idx] = _to;
-            });
-        }
 
         return to;
     }
